@@ -13,8 +13,9 @@ class RolesController < ApplicationController
 
   def create
     @role = Role.new
-    @role.movie_id = params[:movie_id]
     @role.character_name = params[:character_name]
+    @role.movie_id = params[:movie_id]
+    @role.actor_id = params[:actor_id]
 
     if @role.save
       redirect_to roles_url, :notice => "Role created successfully."
@@ -30,8 +31,9 @@ class RolesController < ApplicationController
   def update
     @role = Role.find(params[:id])
 
-    @role.movie_id = params[:movie_id]
     @role.character_name = params[:character_name]
+    @role.movie_id = params[:movie_id]
+    @role.actor_id = params[:actor_id]
 
     if @role.save
       redirect_to role_url(@role.id), :notice => "Role updated successfully."
