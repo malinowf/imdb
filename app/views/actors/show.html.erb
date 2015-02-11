@@ -22,6 +22,15 @@
               <dt>Image url</dt>
               <dd><%= @actor.image_url %></dd>
 
+              <dt>Roles</dt>
+              <dd>
+                <ul>
+                  <% @actor.roles.each do |role| %>
+                    <li><%= role.character_name %></li>
+                  <% end %>
+                </ul>
+              </dd>
+
             </dl>
             <div class="btn-group btn-group-justified">
               <%= link_to actors_url, :class => "btn btn-primary" do %>
