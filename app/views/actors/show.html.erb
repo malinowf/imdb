@@ -26,7 +26,7 @@
               <dd>
                 <ul>
                   <% @actor.roles.each do |role| %>
-                    <li><%= role.character_name %></li>
+                    <li><%= role.character_name %> (<%= role.movie.title %> (<%= role.movie.year %>))</li>
                   <% end %>
                 </ul>
               </dd>
