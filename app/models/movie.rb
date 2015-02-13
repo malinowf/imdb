@@ -1,12 +1,9 @@
 class Movie < ActiveRecord::Base
   validates :title, :presence => true, :uniqueness => { :scope => :year }
 
-  def director
-    return Director.find_by({ :id => self.director_id })
-  end
+  # belongs to Director (call the method "director")
 
-  def roles
-    return Role.where({ :movie_id => self.id })
-  end
+  # has many Roles (call the method "roles")
+
 
 end

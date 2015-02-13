@@ -2,11 +2,8 @@ class Role < ActiveRecord::Base
 
   validates :character_name, :presence => true
 
-  def movie
-    return Movie.find_by :id => self.movie_id
-  end
+  # belongs to Movie (call the method "movie")
 
-  def actor
-    return Actor.find_by :id => self.actor_id
-  end
+  # belongs to Actor (call the method "actor")
+
 end
