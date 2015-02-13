@@ -27,16 +27,6 @@
 
               <dt>Director</dt>
               <dd><%= @movie.director.name %></dd>
-
-              <dt>Roles</dt>
-              <dd>
-                <ul>
-                  <% @movie.roles.each do |role| %>
-                    <li><%= role.character_name %> (<%= role.actor.name %>, <%= role.actor.dob %>)</li>
-                  <% end %>
-                </ul>
-              </dd>
-
             </dl>
             <div class="btn-group btn-group-justified">
               <%= link_to movies_url, :class => "btn btn-primary" do %>
@@ -52,6 +42,21 @@
           </div>
         </div>
       </div>
+
+      <ul class="list-group">
+        <li class="list-group-item disabled"><strong>Cast</strong></li>
+
+        <% @movie.roles.each do |role| %>
+          <li class="list-group-item">
+            <%= role.character_name %>
+            (<a href="http://localhost:3000/actors/<%= role.actor.id %>"><%= role.actor.name %></a>)
+            (<%= link_to(role.actor.name, "http://localhost:3000/actors/#{role.actor.id}") %>)
+            (<%= link_to(role.actor.name, actor_url(role.actor.id)) %>)
+          </li>
+        <% end %>
+
+      </ul>
+
     </div>
   </div>
 </div>
